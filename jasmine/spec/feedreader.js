@@ -105,8 +105,16 @@ $(function() {
       * by the loadFeed function that the content actually changes.
       * Remember, loadFeed() is asynchronous.
       */
+      var firstFeed;
       beforeEach(function(done) {
-        
+        loadFeed(0, function() {
+          firstFeed = $('.feed').html();
+          loadFeed(1, done);
+        });
+      });
+
+      it('content changes', function() {
+        expect($('.feed').html()).not.toEqual(firstFeed);
       });
     });
 
