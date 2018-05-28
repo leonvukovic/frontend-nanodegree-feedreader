@@ -83,7 +83,7 @@ $(function() {
 
       /* There is at least a single .entry element within the .feed container */
       it('aren\'t empty', function() {
-        expect($('.feed .entry')).not.toBe(0);
+        expect($('.feed .entry').length).not.toBe(0);
       });
     });
 
