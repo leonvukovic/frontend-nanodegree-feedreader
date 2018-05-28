@@ -47,12 +47,13 @@ $(function() {
 
     /* The menu test suite */
     describe('The menu', function() {
+         const body = $('body');
          /* This test ensures that the menu element is hidden by default. */
          it('is hidden', function() {
             /* Ensures that body have class .menu-hidden which means that
             * the menu element is hidden by default.
             */
-            expect($('body').hasClass('menu-hidden')).toBe(true);
+            expect(body.hasClass('menu-hidden')).toBe(true);
          });
 
 
@@ -62,11 +63,11 @@ $(function() {
           it('changes visibility', function() {
             /* When menu icon is clicked, menu displays */
             $('.menu-icon-link').click();
-            expect($('body').hasClass('menu-hidden')).toBe(false);
+            expect(body.hasClass('menu-hidden')).toBe(false);
 
             /* When menu icon is clicked again, menu hides */
             $('.menu-icon-link').click();
-            expect($('body').hasClass('menu-hidden')).toBe(true);
+            expect(body.hasClass('menu-hidden')).toBe(true);
           });
     });
 
