@@ -91,17 +91,21 @@ $(function() {
     /* New Feed Selection test suite */
     describe('New Feed Selection', function() {
       /* A new feed is loaded by the loadFeed function */
-      var firstFeed;
+      let firstFeed;
+      let secondFeed;
       beforeEach(function(done) {
         loadFeed(0, function() {
           firstFeed = $('.feed').html();
-          loadFeed(1, done);
+          loadFeed(1, function() {
+            secondFeed = $('.feed').html();
+            done();
+          });
         });
       });
 
       /* The content changes */
       it('content changes', function() {
-        expect($('.feed').html()).not.toEqual(firstFeed);
+        expect(secondFeed).not.toEqual(firstFeed);
       });
     });
 
